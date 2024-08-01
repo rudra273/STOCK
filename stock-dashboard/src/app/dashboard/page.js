@@ -34,7 +34,7 @@ const getToken = () => {
 async function fetchStockData() {
   const token = getToken();
 
-  const lurl = 'http://localhost:8000'
+  const lurl = 'http://localhost:8002'
   const durl = process.env.NEXT_PUBLIC_API_URL
   
 // const url = 
