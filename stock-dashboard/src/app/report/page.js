@@ -28,7 +28,7 @@ const getToken = () => {
   // Function to fetch stock data with authorization header
   async function fetchStockData() {
     const token = getToken();
-    const lurl = 'http://localhost:8002'
+    const lurl = 'http://localhost:8000'
     const durl = process.env.NEXT_PUBLIC_API_URL
   
   

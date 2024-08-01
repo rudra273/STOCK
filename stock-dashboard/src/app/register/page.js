@@ -94,7 +94,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError(null);
 
-    const lurl = 'http://localhost:8002'
+    const lurl = 'http://localhost:8000'
     const durl = process.env.NEXT_PUBLIC_API_URL
   
 
