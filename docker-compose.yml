@@ -64,6 +64,8 @@ services:
       - "3005:3000"  # Expose Grafana on port 3005
     depends_on:
       - prometheus
+    volumes:
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
     networks:
       - stock-network
 
