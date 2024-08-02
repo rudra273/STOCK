@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-collector
+  namespace: stock-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metrics-collector
+  template:
+    metadata:
+      labels:
+        app: metrics-collector
+    spec:
+      containers:
+        - name: metrics-collector
+          image: rudra273/metrics-collector:latest
+          ports:
+            - containerPort: 7878
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-collector
+  namespace: stock-app
+spec:
+  ports:
+    - port: 7878
+  selector:
+    app: metrics-collector

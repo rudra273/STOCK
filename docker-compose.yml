@@ -52,7 +52,7 @@ services:
   prometheus:
     image: prom/prometheus:latest
     ports:
-      - "9002:9090"  # Expose Prometheus on port 9002
+      - "9002:9090"  
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
@@ -61,7 +61,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports:
-      - "3005:3000"  # Expose Grafana on port 3005
+      - "3005:3000"  
     depends_on:
       - prometheus
     volumes:
@@ -69,7 +69,7 @@ services:
     networks:
       - stock-network
 
-  metrics_collector:
+  metrics_collector: 
     build:
       context: ./metrics_collector
     ports:
