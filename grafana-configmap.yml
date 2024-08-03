@@ -9,7 +9,7 @@ data:
     enabled = true
     host = smtp.gmail.com:587
     user = rm955069@gmail.com
-    password = fvanncxwvtnmmysu
+    password = 
     skip_verify = true
     from_address = rm955069@gmail.com
     from_name = Grafana
