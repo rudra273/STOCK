@@ -94,15 +94,18 @@ const DashboardPage = () => {
 
   return (
     <div>
-    <NavBar />
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-4xl font-bold mb-6">Stock Dashboard</h1>
-        <StockDashboard stocks={stocks} />
-      </main>
-    </div>
+      <NavBar />
+      <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[#EEEEEE] dark:bg-[#222831]">
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+          <h1 className="text-4xl font-bold mb-6 text-[#393E46] dark:text-[#00ADB5] font-sans">
+            Dashboard
+          </h1>
+          <StockDashboard stocks={stocks} />
+        </main>
+      </div>
     </div>
   );
+  
 };
 
 export default DashboardPage; 

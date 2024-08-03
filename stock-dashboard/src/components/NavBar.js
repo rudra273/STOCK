@@ -1,59 +1,3 @@
-// src/components/NavBar.js
-
-// import Link from 'next/link';
-
-// const NavBar = () => {
-//   return (
-//     <nav className="bg-gray-800 p-4">
-//       <div className="container mx-auto flex justify-between items-center">
-//         <div className="text-white text-lg font-bold">StockApp</div>
-//         <div className="flex space-x-4">
-//           <Link href="/" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Home</a>
-//           </Link>
-//           <Link href="/dashboard" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Dashboard</a>
-//           </Link>
-//           <Link href="/report" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Report</a>
-//           </Link>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
-// import Link from 'next/link';
-
-// const NavBar = () => {
-//   return (
-//     <nav className="bg-gray-800 p-4">
-//       <div className="container mx-auto flex justify-between items-center">
-//         <div className="text-white text-lg font-bold">StockApp</div>
-//         <div className="flex space-x-4">
-//           <Link href="/" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Home</a>
-//           </Link>
-//           <Link href="/dashboard" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Dashboard</a>
-//           </Link>
-//           <Link href="/report" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Report</a>
-//           </Link>
-//           <Link href="/login" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Login</a>
-//           </Link>
-//           <Link href="/register" legacyBehavior>
-//             <a className="text-white hover:text-gray-400">Register</a>
-//           </Link>
-//         </div>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default NavBar;
 
 "use client"; 
 
@@ -89,32 +33,44 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-800 p-4">
+    <nav className="bg-[#393E46] dark:bg-[#222831] p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg font-bold">StockApp</div>
+        <div className="text-[#00ADB5] dark:text-[#00ADB5] text-lg font-bold">
+          StockDashboard
+        </div>
         <div className="flex space-x-4">
           <Link href="/" legacyBehavior>
-            <a className="text-white hover:text-gray-400">Home</a>
+            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+              Home
+            </a>
           </Link>
           <Link href="/dashboard" legacyBehavior>
-            <a className="text-white hover:text-gray-400">Dashboard</a>
+            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+              Dashboard
+            </a>
           </Link>
           <Link href="/report" legacyBehavior>
-            <a className="text-white hover:text-gray-400">Report</a>
+            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+              Report
+            </a>
           </Link>
           {!authStatus ? (
             <>
               <Link href="/login" legacyBehavior>
-                <a className="text-white hover:text-gray-400">Login</a>
+                <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+                  Login
+                </a>
               </Link>
               <Link href="/register" legacyBehavior>
-                <a className="text-white hover:text-gray-400">Register</a>
+                <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+                  Register
+                </a>
               </Link>
             </>
           ) : (
             <button
               onClick={handleLogout}
-              className="text-white hover:text-gray-400 bg-red-600 px-2 py-0 rounded"
+              className="text-[#EEEEEE] dark:text-[#EEEEEE] bg-[#00ADB5] dark:bg-[#00ADB5] px-3 py-0 rounded hover:bg-[#007A7E] dark:hover:bg-[#007A7E]"
             >
               Logout
             </button>
@@ -123,6 +79,7 @@ const NavBar = () => {
       </div>
     </nav>
   );
+  
 };
 
 export default NavBar;

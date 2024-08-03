@@ -19,23 +19,95 @@ const ReportDashboard = ({ stocks }) => {
   const topLosers = getTopLosers(stocks);
   const highestMarketCap = getHighestMarketCap(stocks);
 
+  // return (
+  //   <div className="flex flex-col md:flex-row gap-8 p-8">
+  //     {/* Top Gainers Card */}
+  //     <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
+  //       <h2 className="text-xl font-bold mb-4">Top Gainers</h2>
+  //       {/* <p className="mb-4 text-sm text-gray-500">Companies with the highest percentage increase in stock price.</p> */}
+  //       <table className="min-w-full divide-y divide-gray-200">
+  //         <thead className="bg-gray-50">
+  //           <tr>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentage Change</th>
+  //           </tr>
+  //         </thead>
+  //         <tbody className="bg-white divide-y divide-gray-200">
+  //           {topGainers.map((stock) => (
+  //             <tr key={stock.Symbol}>
+  //               <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+  //               <td className={`px-4 py-2 whitespace-nowrap text-sm ${stock.PercentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+  //                 {stock.PercentageChange.toFixed(2)}%
+  //               </td>
+  //             </tr>
+  //           ))}
+  //         </tbody>
+  //       </table>
+  //     </div>
+
+  //     {/* Top Losers Card */}
+  //     <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
+  //       <h2 className="text-xl font-bold mb-4">Top Losers</h2>
+  //       {/* <p className="mb-4 text-sm text-gray-500">Companies with the highest percentage decrease in stock price.</p> */}
+  //       <table className="min-w-full divide-y divide-gray-200">
+  //         <thead className="bg-gray-50">
+  //           <tr>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentage Change</th>
+  //           </tr>
+  //         </thead>
+  //         <tbody className="bg-white divide-y divide-gray-200">
+  //           {topLosers.map((stock) => (
+  //             <tr key={stock.Symbol}>
+  //               <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+  //               <td className={`px-4 py-2 whitespace-nowrap text-sm ${stock.PercentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+  //                 {stock.PercentageChange.toFixed(2)}%
+  //               </td>
+  //             </tr>
+  //           ))}
+  //         </tbody>
+  //       </table>
+  //     </div>
+
+  //     {/* Highest Market Capitalization Card */}
+  //     <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
+  //       <h2 className="text-xl font-bold mb-4">Highest Market Capitalization</h2>
+  //       {/* <p className="mb-4 text-sm text-gray-500">Companies with the largest market capitalization.             </p> */}
+  //       <table className="min-w-full divide-y divide-gray-200">
+  //         <thead className="bg-gray-50">
+  //           <tr>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
+  //             <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap</th>
+  //           </tr>
+  //         </thead>
+  //         <tbody className="bg-white divide-y divide-gray-200">
+  //           {highestMarketCap.map((stock) => (
+  //             <tr key={stock.Symbol}>
+  //               <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+  //               <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500">${stock.MarketCap.toLocaleString()}</td>
+  //             </tr>
+  //           ))}
+  //         </tbody>
+  //       </table>
+  //     </div>
+  //   </div>
+  // );
   return (
-    <div className="flex flex-col md:flex-row gap-8 p-8">
+    <div className="flex flex-col md:flex-row gap-8 p-8 bg-[#EEEEEE] dark:bg-[#222831]">
       {/* Top Gainers Card */}
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
-        <h2 className="text-xl font-bold mb-4">Top Gainers</h2>
-        {/* <p className="mb-4 text-sm text-gray-500">Companies with the highest percentage increase in stock price.</p> */}
+      <div className="bg-white dark:bg-[#393E46] shadow-lg rounded-sm p-6 w-full md:w-1/3">
+        <h2 className="text-2xl font-bold mb-4 text-[#00ADB5] dark:text-[#00ADB5]">Top Gainers</h2>
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-[#393E46]">
             <tr>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentage Change</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Company Name</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Change Percentage</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white dark:bg-[#222831] divide-y divide-gray-200">
             {topGainers.map((stock) => (
               <tr key={stock.Symbol}>
-                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-[#EEEEEE]">{stock.CompanyName}</td>
                 <td className={`px-4 py-2 whitespace-nowrap text-sm ${stock.PercentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                   {stock.PercentageChange.toFixed(2)}%
                 </td>
@@ -44,22 +116,21 @@ const ReportDashboard = ({ stocks }) => {
           </tbody>
         </table>
       </div>
-
+  
       {/* Top Losers Card */}
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
-        <h2 className="text-xl font-bold mb-4">Top Losers</h2>
-        {/* <p className="mb-4 text-sm text-gray-500">Companies with the highest percentage decrease in stock price.</p> */}
+      <div className="bg-white dark:bg-[#393E46] shadow-lg rounded-sm p-6 w-full md:w-1/3">
+        <h2 className="text-2xl font-bold mb-4 text-[#00ADB5] dark:text-[#00ADB5]">Top Losers</h2>
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-[#393E46]">
             <tr>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Percentage Change</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Company Name</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Change Percentage</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white dark:bg-[#222831] divide-y divide-gray-200">
             {topLosers.map((stock) => (
               <tr key={stock.Symbol}>
-                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-[#EEEEEE]">{stock.CompanyName}</td>
                 <td className={`px-4 py-2 whitespace-nowrap text-sm ${stock.PercentageChange >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                   {stock.PercentageChange.toFixed(2)}%
                 </td>
@@ -68,23 +139,22 @@ const ReportDashboard = ({ stocks }) => {
           </tbody>
         </table>
       </div>
-
+  
       {/* Highest Market Capitalization Card */}
-      <div className="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/3">
-        <h2 className="text-xl font-bold mb-4">Highest Market Capitalization</h2>
-        {/* <p className="mb-4 text-sm text-gray-500">Companies with the largest market capitalization.             </p> */}
+      <div className="bg-white dark:bg-[#393E46] shadow-lg rounded-sm p-6 w-full md:w-1/3">
+        <h2 className="text-2xl font-bold mb-4 text-[#00ADB5] dark:text-[#00ADB5]">Highest Market Capitalization</h2>
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50 dark:bg-[#393E46]">
             <tr>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
-              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Company Name</th>
+              <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider dark:text-[#EEEEEE]">Market Cap</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white dark:bg-[#222831] divide-y divide-gray-200">
             {highestMarketCap.map((stock) => (
               <tr key={stock.Symbol}>
-                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
-                <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500">${stock.MarketCap.toLocaleString()}</td>
+                <td className="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-[#EEEEEE]">{stock.CompanyName}</td>
+                <td className="px-4 py-2 whitespace-nowrap text-sm text-gray-500 dark:text-[#EEEEEE]">${stock.MarketCap.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
@@ -92,6 +162,10 @@ const ReportDashboard = ({ stocks }) => {
       </div>
     </div>
   );
+  
+
+  
+
 };
 
 export default ReportDashboard;

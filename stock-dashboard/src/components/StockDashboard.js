@@ -78,35 +78,75 @@ const StockDashboard = ({ stocks }) => {
     router.push(`/dashboard/${symbol}/chart`); // Navigate to the chart page
   };
 
+  // return (
+  //   <div className="overflow-x-auto">
+  //     <table className="min-w-full divide-y divide-gray-200">
+  //       <thead className="bg-gray-50">
+  //         <tr>
+  //           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
+  //           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap</th>
+  //           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Open</th>
+  //           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Price</th>
+  //           <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Change %</th> 
+  //         </tr>
+  //       </thead>
+  //       <tbody className="bg-white divide-y divide-gray-200">
+  //         {stocks.map((stock) => (
+  //           <tr key={stock.Symbol} onClick={() => handleRowClick(stock.Symbol)} className="cursor-pointer hover:bg-gray-100">
+  //             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
+  //             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{stock.MarketCap.toLocaleString()}</td>
+  //             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${stock.Open.toFixed(2)}</td>
+  //             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${stock.CurrentPrice.toFixed(2)}</td>
+  //             <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(stock.PercentageChange)}`}>
+  //               {stock.PercentageChange.toFixed(2)}%
+  //             </td>
+              
+  //           </tr>
+  //         ))}
+  //       </tbody>
+  //     </table>
+  //   </div>
+  // );
+
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
+      <table className="min-w-full divide-y divide-transparent dark:bg-[#222831] bg-[#EEEEEE]">
+        <thead className="dark:bg-[#393E46] bg-[#00ADB5]">
           <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company Name</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Cap</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Open</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Price</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Change %</th> 
+            <th className="px-6 py-3 text-left text-xs font-medium text-[#EEEEEE] uppercase tracking-wider">Company Name</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-[#EEEEEE] uppercase tracking-wider">Market Cap</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-[#EEEEEE] uppercase tracking-wider">Open</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-[#EEEEEE] uppercase tracking-wider">Current Price</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-[#EEEEEE] uppercase tracking-wider">Change %</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="dark:bg-[#222831] bg-[#EEEEEE]">
           {stocks.map((stock) => (
-            <tr key={stock.Symbol} onClick={() => handleRowClick(stock.Symbol)} className="cursor-pointer hover:bg-gray-100">
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{stock.CompanyName}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{stock.MarketCap.toLocaleString()}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${stock.Open.toFixed(2)}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${stock.CurrentPrice.toFixed(2)}</td>
-              <td className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(stock.PercentageChange)}`}>
+            <tr 
+              key={stock.Symbol} 
+              onClick={() => handleRowClick(stock.Symbol)} 
+              className="cursor-pointer hover:bg-white dark:hover:bg-[#393E46] hover:shadow-lg dark:hover:shadow-lg"
+            >
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-[#EEEEEE]">{stock.CompanyName}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-[#EEEEEE]">{stock.MarketCap.toLocaleString()}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-[#EEEEEE]">${stock.Open.toFixed(2)}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-[#EEEEEE]">${stock.CurrentPrice.toFixed(2)}</td>
+              <td 
+                className={`px-6 py-4 whitespace-nowrap text-sm ${getColor(stock.PercentageChange)} dark:text-[#EEEEEE]`}
+              >
                 {stock.PercentageChange.toFixed(2)}%
               </td>
-              
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
+  
+  
+
+
+
 };
 
 export default StockDashboard;

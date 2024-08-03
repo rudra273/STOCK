@@ -85,18 +85,20 @@ const ReportPage = () => {
     return <div>Error: {error}</div>;
   }
 
+  
   return (
-    <div>
-        <NavBar />
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-4xl font-bold mb-6">Stock Report</h1>
-        <ReportDashboard stocks={stocks} />
-      </main>
-    </div>
-    </div>
-  );
+  <div className="bg-[#EEEEEE] dark:bg-[#222831] min-h-screen">
+  <NavBar />
+  <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      <h1 className="text-4xl font-bold mb-6 text-[#393E46] dark:text-[#00ADB5]">Stock Report</h1>
+      <ReportDashboard stocks={stocks} />
+    </main>
+  </div>
+</div>
+);
+
+
 };
 
 export default ReportPage; 
