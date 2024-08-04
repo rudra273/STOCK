@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import StockDashboard from '../../components/StockDashboard';
 import NavBar from '../../components/NavBar';
 import { fetchWithAuth } from '../../utils/api';
+import Footer from '../../components/Footer';
 
 
 // async function fetchStockData() {
@@ -91,20 +92,23 @@ const DashboardPage = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  
 
   return (
     <div>
       <NavBar />
-      <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[#EEEEEE] dark:bg-[#222831]">
+      <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <h1 className="text-4xl font-bold mb-6 text-[#393E46] dark:text-[#00ADB5] font-sans">
+          <h1 className="text-4xl font-bold mb-6 text-[#333333] dark:text-[#E1F4F3] font-sans">
             Dashboard
           </h1>
           <StockDashboard stocks={stocks} />
         </main>
       </div>
+      <Footer />
     </div>
   );
+  
   
 };
 

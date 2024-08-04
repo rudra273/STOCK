@@ -33,36 +33,36 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-[#393E46] dark:bg-[#222831] p-4">
+    <nav className="bg-[#333333] dark:bg-[#222831] p-4 fixed w-full">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-[#00ADB5] dark:text-[#00ADB5] text-lg font-bold">
+        <div className="text-[#E1F4F3] dark:text-[#E1F4F3] text-lg font-bold">
           StockDashboard
         </div>
         <div className="flex space-x-4">
           <Link href="/" legacyBehavior>
-            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+            <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
               Home
             </a>
           </Link>
           <Link href="/dashboard" legacyBehavior>
-            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+            <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
               Dashboard
             </a>
           </Link>
           <Link href="/report" legacyBehavior>
-            <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+            <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
               Report
             </a>
           </Link>
           {!authStatus ? (
             <>
               <Link href="/login" legacyBehavior>
-                <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+                <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
                   Login
                 </a>
               </Link>
               <Link href="/register" legacyBehavior>
-                <a className="text-[#EEEEEE] dark:text-[#EEEEEE] hover:text-[#00ADB5] dark:hover:text-[#00ADB5]">
+                <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
                   Register
                 </a>
               </Link>
@@ -70,7 +70,7 @@ const NavBar = () => {
           ) : (
             <button
               onClick={handleLogout}
-              className="text-[#EEEEEE] dark:text-[#EEEEEE] bg-[#00ADB5] dark:bg-[#00ADB5] px-3 py-0 rounded hover:bg-[#007A7E] dark:hover:bg-[#007A7E]"
+              className="text-[#333333] dark:text-[#FFFFFF] bg-[#E1F4F3] dark:bg-[#E1F4F3] px-3 py-0 rounded hover:bg-[#706C61] dark:hover:bg-[#706C61]"
             >
               Logout
             </button>
@@ -79,6 +79,8 @@ const NavBar = () => {
       </div>
     </nav>
   );
+  
+
   
 };
 
