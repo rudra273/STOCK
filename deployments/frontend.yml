@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: rudra273/stock-frontend:0.2
+          image: rudra273/stock-frontend:0.3
           env:
             - name: NEXT_PUBLIC_API_URL
               value: "http://backend:8000"
