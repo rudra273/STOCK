@@ -155,11 +155,21 @@ The 'Stock Dashboards' project integrates Next.js, Django, PostgreSQL, and compr
 
 # ---
 
-stock-frontend:0.3
+<!-- for clusterip- -->
+rudra273/stock-backend:0.2
+docker build -t rudra273/stock-backend:0.2 .
+docker push rudra273/stock-backend:0.2
 
-docker build -t rudra273/stock-frontend:0.3 .
 
-docker push rudra273/stock-frontend:0.3
+stock-frontend:0.5
+
+docker build -t rudra273/stock-frontend:0.5 .
+
+docker push rudra273/stock-frontend:0.5 
+
+
+
+
 
 ## Build and Push Docker Images
 

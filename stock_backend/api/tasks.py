@@ -9,7 +9,7 @@ def run_ingest():
         try:
             # Run the ingest.py script
             subprocess.run(['python', 'services/ingest.py'], check=True) 
-            print('hi')
+            print('current data updated.')
         except subprocess.CalledProcessError as e:
             # Handle errors in script execution
             print(f"Error running ingest.py: {e}")
@@ -21,11 +21,11 @@ def run_daily_task():
         try:
             # Run the daily_task.py script
             subprocess.run(['python', 'services/historical_ingestion.py'], check=True)
-            print('Daily task executed')
+            print('historical data updated')
         except subprocess.CalledProcessError as e:
             # Handle errors in script execution
             print(f"Error running daily_task.py: {e}")
-        time.sleep(86400)  # Wait for 1 day (24 hours) before running again
+        time.sleep(900)  # Wait for 1 day (24 hours) before running again
 
 
 # Define the function to start the background task

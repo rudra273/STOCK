@@ -11,6 +11,7 @@ services:
     depends_on:
       - db
     environment:
+      - STOCK_SYMBOLS=TCS.NS,ITC.NS,COALINDIA.NS,RR.L,HSBA.L
       - DEBUG=1
       - DB_HOST=db
       - DB_PORT=5432

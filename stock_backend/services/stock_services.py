@@ -59,7 +59,7 @@ def get_stock_data(symbols, country):
         monthly_high = round(float(monthly_hist['High'].max()), 4) if not monthly_hist.empty else float('nan')
 
         market_cap = int(stock.info.get('marketCap', 0)) if stock.info.get('marketCap') else None
-        company_name = stock.info.get('shortName', 'N/A')
+        company_name = stock.info.get('longName', 'N/A')
         currency = stock.info.get('currency', 'N/A')
 
         percentage_change = round(float(((close_price - open_price) / open_price) * 100), 4) if open_price else float('nan')

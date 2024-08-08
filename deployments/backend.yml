@@ -15,8 +15,10 @@ spec:
     spec:
       containers:
         - name: backend
-          image: rudra273/stock-backend:latest
+          image: rudra273/stock-backend:0.2
           env:
+            - name: STOCK_SYMBOLS
+              value: TCS.NS,ITC.NS,COALINDIA.NS,RR.L,HSBA.L
             - name: DEBUG
               value: "1"
             - name: DB_HOST

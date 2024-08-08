@@ -1,4 +1,4 @@
-"use client"; // This directive makes the file a client component
+"use client"; 
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -37,6 +37,7 @@ export default function LoginPage() {
       setError(data.detail || 'An error occurred');
     }
   };
+
 
   
   return (
@@ -102,7 +103,6 @@ export default function LoginPage() {
       <Footer />
     </div>
   );
-  
   
   
 }
