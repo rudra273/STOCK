@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: stock-app
+  namespace: stock-app-ci
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: rudra273/stock-backend:0.2
+          image: rudra273/stock-backend:1.0
           env:
             - name: STOCK_SYMBOLS
               value: TCS.NS,ITC.NS,COALINDIA.NS,RR.L,HSBA.L
@@ -38,7 +38,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend
-  namespace: stock-app
+  namespace: stock-app-ci
 spec:
   ports:
     - port: 8000

@@ -6,8 +6,8 @@ services:
       context: ./stock_backend
     ports:
       - "8002:8000"
-    volumes:
-      - ./stock_backend:/app
+    # volumes:
+    #   - ./stock_backend:/app
     depends_on:
       - db
     environment:
@@ -29,7 +29,7 @@ services:
     volumes:
       - ./stock-dashboard:/app
     environment:
-      - NEXT_PUBLIC_API_URL=http://backend:8000
+      - NEXT_PUBLIC_API_URL=http://localhost:8002
     networks:
       - stock-network
 
@@ -43,6 +43,8 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - stock-network
+    ports:
+    - "5433:5432" 
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U rudra -d mydb"]
       interval: 10s

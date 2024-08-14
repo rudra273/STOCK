@@ -1,5 +1,5 @@
 
-"use client"; // This directive makes the file a client component
+"use client"; 
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -48,7 +48,7 @@ export default function RegisterPage() {
     const lurl = 'http://localhost:8002'
     const durl = process.env.NEXT_PUBLIC_API_URL
 
-    const res = await fetch(`${lurl}/users/register/`, {
+    const res = await fetch(`${durl}/users/register/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

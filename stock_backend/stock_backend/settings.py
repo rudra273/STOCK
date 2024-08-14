@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-&xr^x6m5rgte%)5&8g*j(r!w46(11n&ma$6e38-4l&1_amk@k!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['backend', 'localhost', '127.0.0.1', '192.168.49.2']
 
 
 # Application definition
@@ -59,6 +59,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001", 
     "http://localhost:3002", 
+    "http://192.168.49.2:30001",
+    "http://192.168.49.2:30000",
+    "http://192.168.49.2:30002",
+    "http://192.168.49.2:30003",
 ]
 
 ROOT_URLCONF = "stock_backend.urls"
@@ -102,6 +106,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
 
 
 
@@ -158,7 +163,7 @@ REST_FRAMEWORK = {
 
 from datetime import datetime, timedelta
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 

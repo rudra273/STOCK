@@ -8,19 +8,9 @@ from datetime import datetime, timedelta
 import pandas as pd
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
-
-# def ingest():
-#     symbols = [
-#         "MSFT", "AAPL", "GOOGL", "AMZN", "TSLA", "META", "NVDA", "ADBE", "INTC", "NFLX",
-#         "CSCO", "AMD", "BA", "IBM", "DIS", "PYPL", "MA", "V", "WMT", "KO"
-#     ]    
-#     country = "USA"
-#     stock_data = get_stock_data(symbols, country)
-    
-#     df = pd.DataFrame(stock_data)  
-#     print(df) 
-
-#     dump_to_postgresql(df, schema_name='public', table_name='stock_data')
+from .models import StockData
+import pytz
+import yfinance as yf
 
 
 class StockDataAPIView(APIView):
@@ -96,3 +86,19 @@ class StockDataDBAPIView(APIView):
         else:
             return Response({"error": "No data found."}, status=status.HTTP_404_NOT_FOUND) 
         
+
+class StockDataTAPIView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        # Fetch all stock data from the database
+        stock_data = StockData.objects.all()
+        print(stock_data)
+        
+        # Serialize the data
+        serializer = StockDataSerializer(stock_data, many=True)
+        
+        # Return the serialized data
+        return Response(serializer.data, status=status.HTTP_200_OK)
+

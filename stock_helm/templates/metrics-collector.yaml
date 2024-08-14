@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: metrics-collector
-  namespace: stock-app-ci
+  namespace: stock-app
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: metrics-collector
-          image: rudra273/metrics-collector:latest
+          image: {{ .Values.metricsCollector.image }}
           ports:
             - containerPort: 7878
 ---
@@ -23,9 +23,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: metrics-collector
-  namespace: stock-app-ci
+  namespace: stock-app
 spec:
+  type: NodePort
   ports:
     - port: 7878
+      nodePort: {{ .Values.metricsCollector.nodePort }}
   selector:
     app: metrics-collector

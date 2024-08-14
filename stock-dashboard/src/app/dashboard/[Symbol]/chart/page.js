@@ -5,43 +5,68 @@ import { Line, Bar } from 'react-chartjs-2'; // Import Line and Bar chart compon
 import Chart from 'chart.js/auto'; // Import Chart.js
 import NavBar from '../../../../components/NavBar';
 import Footer from '../../../../components/Footer';
+import { fetchWithToken } from '../../../../utils/api';
 
 const getToken = () => {
   return localStorage.getItem('access_token');
 };
 
-const fetchHistoricalStockData = async (symbol, period) => {
-  const token = getToken();  // Function to get the token from localStorage
 
+/// old with refress
+// const fetchHistoricalStockData = async (symbol, period) => {
+//   const token = getToken();  // Function to get the token from localStorage
+
+//   const lurl = 'http://localhost:8002';
+//   const durl = process.env.NEXT_PUBLIC_API_URL;
+
+//   try {
+//     const response = await fetch(`${lurl}/api/historical-stock-data/?symbol=${symbol}&period=${period}`, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Bearer ${token}`,
+//       },
+//     });
+
+//     if (response.status === 401) {
+//       window.location.href = '/login'
+//       // Handle unauthorized error, e.g., refresh token or redirect to login
+//       console.error('Unauthorized access - handle token refresh or login');
+//       return null;
+//     }
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     console.error('Error fetching stock data:', error.message);
+//     throw error;
+//   }
+// };
+
+
+///// new with refresss
+const fetchHistoricalStockData = async (symbol, period) => {
   const lurl = 'http://localhost:8002';
   const durl = process.env.NEXT_PUBLIC_API_URL;
 
   try {
-    const response = await fetch(`${lurl}/api/historical-stock-data/?symbol=${symbol}&period=${period}`, {
+    const data = await fetchWithToken(`${durl}/api/historical-stock-data/?symbol=${symbol}&period=${period}`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
       },
     });
 
-    if (response.status === 401) {
-      window.location.href = '/login'
-      // Handle unauthorized error, e.g., refresh token or redirect to login
-      console.error('Unauthorized access - handle token refresh or login');
-      return null;
-    }
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
     return data;
   } catch (error) {
     console.error('Error fetching stock data:', error.message);
     throw error;
   }
 };
+
+
 
 const calculatePercentageGain = (data) => {
   if (data.length < 2) return 0;

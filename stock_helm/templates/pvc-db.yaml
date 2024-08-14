@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: db-pvc
-  namespace: stock-app-ci
+  namespace: stock-app
 spec:
   accessModes:
     - ReadWriteOnce

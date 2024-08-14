@@ -1,1 +1,78 @@
 grafana-configmap.yml
+
+# Node modules
+node_modules/
+*.log
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python related
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Environment variables
+.env
+*.env
+
+# Python virtual environment
+venv/
+.venv/
+
+# Docker
+*.env
+*.log
+docker-compose.override.yml
+Dockerfile.dev
+.dockerignore
+
+# Helm-related files
+stock_helm/values.yaml
+values.yaml
+
+# Database
+*.sqlite3
+
+# Log files
+*.log
+*.pid
+*.pid.lock
+
+# Ignored config files
+grafana/grafana.ini
+grafana-configmap.yml
+
+
+# Build files
+dist/
+build/
+.cache/
+
+# Ignore backup files
+*~
+*.swp
+
+# Ignore binary files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Specific IDE related files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Other sensitive files
+*.pem
+*.key
+*.crt
+*.pfx
+*.p12
