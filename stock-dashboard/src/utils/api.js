@@ -109,3 +109,56 @@ export const fetchWithToken = async (url, options = {}) => {
   }
 };
 
+
+// Function to add a stock to the portfolio
+export const addStockToPortfolio = async (symbol) => {
+  const url = `${durl}/api/portfolio/add/`;
+  const data = { symbol };
+
+  try {
+    const response = await fetchWithToken(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response;
+  } catch (error) {
+    console.error('Error adding stock to portfolio:', error);
+    throw error;
+  }
+};
+
+// Function to remove a stock from the portfolio
+export const removeStockFromPortfolio = async (symbol) => {
+  const url = `${durl}/api/portfolio/remove/`;
+  const data = { symbol };
+
+  try {
+    const response = await fetchWithToken(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response;
+  } catch (error) {
+    console.error('Error removing stock from portfolio:', error);
+    throw error;
+  }
+};
+
+// Function to get the portfolio
+export const getPortfolio = async () => {
+  const url = `${durl}/api/portfolio/get/`;
+
+  try {
+    const response = await fetchWithToken(url);
+    return response;
+  } catch (error) {
+    console.error('Error fetching portfolio:', error);
+    throw error;
+  }
+};

@@ -97,6 +97,7 @@
 
 // export default DashboardPage; 
 
+
 "use client"; 
 
 import React, { useEffect, useState } from 'react';
@@ -122,6 +123,7 @@ const fetchStockData = async () => {
     throw error;
   }
 };
+
 
 const DashboardPage = () => {
   const [stocks, setStocks] = useState([]);
@@ -149,9 +151,9 @@ const DashboardPage = () => {
       <NavBar />
       <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <h1 className="text-4xl font-bold mb-6 text-[#333333] dark:text-[#E1F4F3] font-sans">
+          {/* <h1 className="text-4xl font-bold mb-6 text-[#333333] dark:text-[#E1F4F3] font-sans">
             Dashboard
-          </h1>
+          </h1> */}
           <StockDashboard stocks={stocks} />
         </main>
       </div>
@@ -161,6 +163,7 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
+
 
 
 
