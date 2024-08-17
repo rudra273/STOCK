@@ -10,7 +10,7 @@ def fetch_historical_data(symbols, period="1y"):
             stock = yf.Ticker(symbol)
             hist = stock.history(period=period)
             hist['symbol'] = symbol
-            hist['company_name'] = stock.info.get('shortName', 'N/A')
+            hist['company_name'] = stock.info.get('longName', 'N/A')
             hist['marketCap'] = stock.info.get('marketCap', 'N/A')
             hist['sector'] = stock.info.get('sector', 'N/A')
             hist['industry'] = stock.info.get('industry', 'N/A')
