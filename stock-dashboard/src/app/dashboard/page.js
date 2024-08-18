@@ -102,6 +102,7 @@
 
 import React, { useEffect, useState } from 'react';
 import StockDashboard from '../../components/StockDashboard';
+import ReportDashboard from '../../components/ReportDashboard';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { fetchWithToken } from '../../utils/api';
@@ -150,17 +151,27 @@ const DashboardPage = () => {
     <div>
       <NavBar />
       <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          {/* <h1 className="text-4xl font-bold mb-6 text-[#333333] dark:text-[#E1F4F3] font-sans">
-            Dashboard
-          </h1> */}
-          <StockDashboard stocks={stocks} />
+        <main className="flex flex-row items-start justify-between w-full flex-1 px-20">
+          {/* Stock Dashboard Table */}
+          <div className="flex-1 pr-4">
+            <StockDashboard stocks={stocks} />
+          </div>
+          
+          {/* Report Cards aligned vertically on the right side */}
+          <div className="w-1/3 flex flex-col gap-4">
+            <ReportDashboard stocks={stocks} />
+          </div>
         </main>
       </div>
       <Footer />
     </div>
   );
+  
+
+
+
 };
+
 
 export default DashboardPage;
 

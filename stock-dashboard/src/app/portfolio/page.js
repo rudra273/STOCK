@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import PortfolioDashboard from '../../components/PortfolioDashboard';
-import PortfolioPerformance from '../../components/PortfolioPerformance'; // Import the new component
+import Alert  from '../../components/Alert';
+import PortfolioPerformance from '../../components/PortfolioPerformance'; 
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { fetchWithToken } from '../../utils/api';
@@ -69,17 +70,27 @@ const PortfolioPage = () => {
     return <div>Error: {error}</div>;
   } 
 
-
   return (
     <div>
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
         <NavBar />
       </div>
-      <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-          <PortfolioDashboard portfolio={portfolio} refreshPortfolio={getPortfolioData} />
-          <button 
-            className="mt-5 px-4 py-2 bg-[#E1F4F3] text-[#333333] rounded"
+
+      <div className="flex flex-col min-h-screen bg-[#FFFFFF] dark:bg-[#706C61] pt-16">
+        <div className="flex flex-row mt-0">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold mx-4 mt-1">Your Portfolio</h2>
+            <PortfolioDashboard portfolio={portfolio} refreshPortfolio={getPortfolioData} />
+          </div>
+
+          <div className="w-80 p-4">
+            <Alert portfolio={portfolio} />
+          </div>
+        </div>
+
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center mt-4">
+          <button
+            className="px-4 py-2 bg-[#E1F4F3] text-[#333333] rounded"
             onClick={() => setShowPerformance(!showPerformance)}
           >
             {showPerformance ? 'Hide Performance' : 'Show Performance'}
@@ -87,21 +98,29 @@ const PortfolioPage = () => {
           {showPerformance && <PortfolioPerformance data={performanceData} />}
         </main>
       </div>
+
       <Footer />
     </div>
   );
-  
 
-  
 
   return (
     <div>
-      <NavBar />
-      <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      {/* Fixed header */}
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}>
+        <NavBar />
+      </div>
+
+      {/* Main content container */}
+      <div className="flex flex-col min-h-screen bg-[#FFFFFF] dark:bg-[#706C61] pt-16">
+        {/* PortfolioDashboard close to the NavBar */}
+        <div className="mt-0">
           <PortfolioDashboard portfolio={portfolio} refreshPortfolio={getPortfolioData} />
+        </div>
+
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center mt-4">
           <button 
-            className="mt-5 px-4 py-2 bg-[#E1F4F3] text-[#333333] rounded"
+            className="px-4 py-2 bg-[#E1F4F3] text-[#333333] rounded"
             onClick={() => setShowPerformance(!showPerformance)}
           >
             {showPerformance ? 'Hide Performance' : 'Show Performance'}
@@ -109,9 +128,13 @@ const PortfolioPage = () => {
           {showPerformance && <PortfolioPerformance data={performanceData} />}
         </main>
       </div>
+
       <Footer />
     </div>
   );
+
+
+  
 
 };
 

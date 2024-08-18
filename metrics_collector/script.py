@@ -21,7 +21,7 @@ def collect_metrics():
     # Query to get the stock data
     cur.execute('''
         SELECT "Symbol", "Open", "High", "Low", "Close", "WeeklyHigh", "WeeklyLow", "MonthlyHigh", "MonthlyLow", "MarketCap", "PercentageChange"
-        FROM stock_data
+        FROM api_stockdata
     ''')
     for row in cur.fetchall():
         symbol = row[0]

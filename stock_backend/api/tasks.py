@@ -160,7 +160,7 @@ def run_ingest():
         try:
             main()
             # Run the ingest.py script
-            subprocess.run(['python', 'services/ingest.py'], check=True) 
+            # subprocess.run(['python', 'services/ingest.py'], check=True) 
             print('current data updated.')
         except subprocess.CalledProcessError as e:
             # Handle errors in script execution

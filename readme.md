@@ -148,7 +148,7 @@ The 'Stock Dashboards' project integrates Next.js, Django, PostgreSQL, and compr
 ## ---
 
 
-
+helm upgrade stock-dashboard ./stock_helm
 
 
 
@@ -169,9 +169,9 @@ docker build -t rudra273/stock-frontend:1.1 .
 
 docker push rudra273/stock-frontend:1.1
 
-rudra273/metrics-collector
-docker build -t rudra273/metrics-collector:1.1 .
-docker push rudra273/metrics-collector:1.1
+rudra273/metrics-collector:1.2
+docker build -t rudra273/metrics-collector:1.2 .
+docker push rudra273/metrics-collector:1.2
 
 # to acces db
 kubectl exec -it db-5d9d8f5cb5-lk87w -n stock-app -- /bin/bash

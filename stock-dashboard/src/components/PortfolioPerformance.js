@@ -122,7 +122,7 @@ const PortfolioPerformance = ({ data }) => {
         </div>
 
         {/* Bar Chart */}
-        <div className="mb-8 p-4 bg-white shadow-md rounded-lg">
+        <div className="mb-8 p-4 bg-white rounded-lg">
           <ResponsiveContainer width="100%" height={450}>
             <BarChart data={data}>
               <CartesianGrid

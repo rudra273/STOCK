@@ -75,8 +75,10 @@ async function fetchStockData() {
   const lurl = 'http://localhost:8002';
   const durl = process.env.NEXT_PUBLIC_API_URL;
 
+  // const data = await fetchWithToken(`${durl}/api/test/`);
+
   try {
-    const data = await fetchWithToken(`${durl}/api/stock-data-db/`, {
+    const data = await fetchWithToken(`${durl}/api/test/`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -126,9 +128,6 @@ const ReportPage = () => {
     </div>
   );
   
-
-
-
 
 };
 
