@@ -1,65 +1,73 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+ :root {
+  /* Light Mode Palette */
+  --color-background-light: #F5F8FA;
+  --color-surface-light: #FFFFFF;
+  --color-primary-light: #2563EB;
+  --color-secondary-light: #6366F1;
+  --color-accent-light: #0EA5E9;
+  --color-success-light: #10B981;
+  --color-danger-light: #EF4444;
+  --color-warning-light: #F59E0B;
+  --color-text-primary-light: #111827;
+  --color-text-secondary-light: #4B5563;
+  --color-border-light: #E5E7EB;
+  /* Chart Colors Light (can be accessed as needed) */
 
-@media (prefers-color-scheme: dark) {
+  /* Dark Mode Palette */
+  --color-background-dark: #111827;
+  --color-surface-dark: #1F2937;
+  --color-primary-dark: #3B82F6;
+  --color-secondary-dark: #818CF8;
+  --color-accent-dark: #38BDF8;
+  --color-success-dark: #34D399;
+  --color-danger-dark: #F87171;
+  --color-warning-dark: #FBBF24;
+  --color-text-primary-dark: #F9FAFB;
+  --color-text-secondary-dark: #D1D5DB;
+  --color-border-dark: #374151;
+  /* Chart Colors Dark (can be accessed as needed) */
+
+  /* Default to Light Mode colors initially */
+  --color-background: var(--color-background-light);
+  --color-surface: var(--color-surface-light);
+  --color-primary: var(--color-primary-light);
+  --color-secondary: var(--color-secondary-light);
+  --color-accent: var(--color-accent-light);
+  --color-success: var(--color-success-light);
+  --color-danger: var(--color-danger-light);
+  --color-warning: var(--color-warning-light);
+  --color-text-primary: var(--color-text-primary-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+  --color-border: var(--color-border-light);
+ }
+
+ @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+   --color-background: var(--color-background-dark);
+   --color-surface: var(--color-surface-dark);
+   --color-primary: var(--color-primary-dark);
+   --color-secondary: var(--color-secondary-dark);
+   --color-accent: var(--color-accent-dark);
+   --color-success: var(--color-success-dark);
+   --color-danger: var(--color-danger-dark);
+   --color-warning: var(--color-warning-dark);
+   --color-text-primary: var(--color-text-primary-dark);
+   --color-text-secondary: var(--color-text-secondary-dark);
+   --color-border: var(--color-border-dark);
   }
-}
+ }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+ body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+ }
 
-@layer utilities {
+ @layer utilities {
   .text-balance {
-    text-wrap: balance;
+   text-wrap: balance;
   }
-} */
-
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: rgb(var(--background-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-
-
-
+ }

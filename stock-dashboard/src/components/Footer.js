@@ -1,8 +1,7 @@
-
 const Footer = () => {
     return (
-        <footer className="fixed bottom-0 left-0 w-full bg-[#333333] text-[#EEEEEE] py-2 text-center">
-            <p className="text-sm">© 2024 Rudrapratap Mohanty. All rights reserved.</p>
+        <footer className="fixed bottom-0 left-0 w-full bg-background dark:bg-background-dark text-text-secondary dark:text-text-secondary-dark py-2 text-center border-t border-border dark:border-border-dark">
+            <p className="text-sm">© 2025 Rudrapratap Mohanty. All rights reserved.</p>
         </footer>
     );
 };

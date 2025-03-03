@@ -1,104 +1,4 @@
-
-// "use client"; 
-
-// import Link from 'next/link'
-// import React, { useEffect, useState } from 'react';
-// import StockDashboard from '../../components/StockDashboard';
-// import NavBar from '../../components/NavBar';
-// import { fetchWithAuth } from '../../utils/api';
-// import Footer from '../../components/Footer';
-
-
-// // Function to get the token from localStorage
-// const getToken = () => {
-//   return localStorage.getItem('access_token');
-// };
-
-// // Function to fetch stock data with authorization header
-// async function fetchStockData() {
-//   const token = getToken();
-
-//   const lurl = 'http://localhost:8002'
-//   const durl = process.env.NEXT_PUBLIC_API_URL
-  
-// // const url = 
-//   try {
-//     const response = await fetch(`${lurl}/api/stock-data-db/`, {
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${token}`,
-//       },
-//     });
-
-//     if (response.status === 401) {
-//       window.location.href = '/login'
-//       // Handle unauthorized error, e.g., refresh token or redirect to login
-//       console.error('Unauthorized access - handle token refresh or login');
-      
-//       return null;
-//     }
-
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
-
-//     const data = await response.json();
-//     console.log('Fetched stock data:', data); 
-//     return data;
-//   } catch (error) {
-//     console.error('Error fetching stock data:', error.message); 
-//     throw error;
-//   }
-// }
-
-
-
-
-// const DashboardPage = () => {
-//   const [stocks, setStocks] = useState([]);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const getStockData = async () => {
-//       try {
-//         const data = await fetchStockData();
-//         setStocks(data);
-//       } catch (error) {
-//         console.error('Error fetching stock data:', error.message); 
-//         setError('Failed to fetch stock data');
-//       }
-//     };
-
-//     getStockData();
-//   }, []);
-
-//   if (error) {
-//     return <div>Error: {error}</div>;
-//   }
-  
-
-//   return (
-//     <div>
-//       <NavBar />
-//       <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
-//         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-//           <h1 className="text-4xl font-bold mb-6 text-[#333333] dark:text-[#E1F4F3] font-sans">
-//             Dashboard
-//           </h1>
-//           <StockDashboard stocks={stocks} />
-//         </main>
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-  
-  
-// };
-
-// export default DashboardPage; 
-
-
-"use client"; 
+"use client";
 
 import React, { useEffect, useState } from 'react';
 import StockDashboard from '../../components/StockDashboard';
@@ -107,36 +7,36 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import { fetchWithToken } from '../../utils/api';
 
-
 // Define the URLs as constants
-const lurl = 'http://localhost:8002'; 
-const durl = process.env.NEXT_PUBLIC_API_URL 
+const lurl = 'http://localhost:8002';
+const durl = process.env.NEXT_PUBLIC_API_URL;
 
-console.log(durl)
 // Function to fetch stock data with authorization header
 const fetchStockData = async () => {
   try {
-    // const data = await fetchWithToken(`${durl}/api/stock-data-db/`);
     const data = await fetchWithToken(`${durl}/api/test/`);
     return data;
   } catch (error) {
-    console.error('Error fetching stock data:', error.message); 
+    console.error('Error fetching stock data:', error.message);
     throw error;
   }
 };
 
-
 const DashboardPage = () => {
   const [stocks, setStocks] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getStockData = async () => {
       try {
+        setLoading(true);
         const data = await fetchStockData();
         setStocks(data);
       } catch (error) {
         setError('Failed to fetch stock data');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -144,37 +44,47 @@ const DashboardPage = () => {
   }, []);
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#F5F8FA] dark:bg-[#111827]">
+        <div className="p-6 bg-white dark:bg-[#1F2937] rounded-lg shadow-lg">
+          <h2 className="text-xl font-bold text-red-600 dark:text-red-400 mb-2">Error</h2>
+          <p className="text-[#111827] dark:text-[#F9FAFB]">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-[#F5F8FA] dark:bg-[#111827]">
+        <div className="p-6">
+          <p className="text-[#111827] dark:text-[#F9FAFB] text-lg">Loading stock data...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen bg-[#F5F8FA] dark:bg-[#111827]">
       <NavBar />
-      <div className="flex flex-col items-center justify-center min-h-screen pt-20 bg-[#FFFFFF] dark:bg-[#706C61]">
-        <main className="flex flex-row items-start justify-between w-full flex-1 px-20">
-          {/* Stock Dashboard Table */}
-          <div className="flex-1 pr-4">
-            <StockDashboard stocks={stocks} />
+      <div className="flex-grow w-full pt-16 pb-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-6">
+            {/* Main stock dashboard - 70% width on large screens */}
+            <div className="w-full lg:w-[70%] bg-white dark:bg-[#1F2937] rounded-lg shadow-md">
+              <StockDashboard stocks={stocks} />
+            </div>
+            
+            {/* Side reports - 30% width on large screens */}
+            <div className="w-full lg:w-[30%] sticky top-20">
+              <ReportDashboard stocks={stocks} />
+            </div>
           </div>
-          
-          {/* Report Cards aligned vertically on the right side */}
-          <div className="w-1/3 flex flex-col gap-4">
-            <ReportDashboard stocks={stocks} />
-          </div>
-        </main>
+        </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
-  
-
-
-
 };
 
-
 export default DashboardPage;
-
-
-
-

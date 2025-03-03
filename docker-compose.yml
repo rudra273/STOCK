@@ -11,7 +11,7 @@ services:
     depends_on:
       - db
     environment:
-      - STOCK_SYMBOLS=TCS.NS,ITC.NS,COALINDIA.NS,RR.L,HSBA.L
+      - STOCK_SYMBOLS=TCS.NS,RR.L
       - DEBUG=1
       - DB_HOST=db
       - DB_PORT=5432
@@ -44,7 +44,7 @@ services:
     networks:
       - stock-network
     ports:
-    - "5433:5432" 
+    - "5434:5432" 
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U rudra -d mydb"]
       interval: 10s
@@ -67,8 +67,8 @@ services:
       - "3005:3000"  
     depends_on:
       - prometheus
-    volumes:
-      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+    # volumes:
+      # - ./grafana/grafana.ini:/etc/grafana/grafana.ini
     networks:
       - stock-network
 

@@ -17,7 +17,7 @@ const handleLogout = () => {
   window.location.reload();
 };
 
-const durl = process.env.NEXT_PUBLIC_API_URL; 
+const durl = process.env.NEXT_PUBLIC_API_URL;
 
 const NavBar = () => {
   const [authStatus, setAuthStatus] = useState(false);
@@ -50,25 +50,25 @@ const NavBar = () => {
   }, [authStatus]);
 
   return (
-    <nav className="bg-[#333333] dark:bg-[#222831] p-4 fixed w-full">
+    <nav className="bg-background-dark dark:bg-background-light p-4 fixed w-full z-10"> {/* z-10 to ensure it's on top */}
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-[#E1F4F3] dark:text-[#E1F4F3] text-lg font-bold">
+        <div className="text-text-primary dark:text-text-primary-dark text-lg font-bold">
           StockDashboard
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 items-center"> {/* Aligned items-center for vertical centering */}
           <Link href="/" legacyBehavior>
-            <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
+            <a className="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:accent">
               Home
             </a>
           </Link>
           <Link href="/dashboard" legacyBehavior>
-            <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
+            <a className="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:accent">
               Dashboard
             </a>
           </Link>
           {authStatus && (
             <Link href="/portfolio" legacyBehavior>
-              <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
+              <a className="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:accent">
                 Portfolio
               </a>
             </Link>
@@ -76,28 +76,28 @@ const NavBar = () => {
           {!authStatus ? (
             <>
               <Link href="/login" legacyBehavior>
-                <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
+                <a className="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:accent">
                   Login
                 </a>
               </Link>
               <Link href="/register" legacyBehavior>
-                <a className="text-[#FFFFFF] dark:text-[#FFFFFF] hover:text-[#E1F4F3] dark:hover:text-[#E1F4F3]">
+                <a className="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:accent">
                   Register
                 </a>
               </Link>
             </>
           ) : (
-            <>
-              <span className="text-[#FFFFFF] dark:text-[#FFFFFF]">
+            <div className="flex items-center space-x-4"> {/* Added a div to group username and logout button */}
+              <span className="text-text-secondary dark:text-text-secondary-dark">
                 Hello, {username}!
               </span>
               <button
                 onClick={handleLogout}
-                className="text-[#333333] dark:text-[#FFFFFF] bg-[#E1F4F3] dark:bg-[#E1F4F3] px-3 py-0 rounded hover:bg-[#706C61] dark:hover:bg-[#706C61]"
+                className="bg-surface dark:bg-surface-dark text-text-primary dark:text-text-primary-dark px-3 py-1 rounded hover:bg-warning dark:hover:bg-warning"
               >
                 Logout
               </button>
-            </>
+            </div>
           )}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import yfinance as yf
 import pytz
 from datetime import datetime
+import pandas as pd
 
 COUNTRY_MARKET_HOURS = {
     'USA': {
@@ -93,3 +94,4 @@ def get_stock_data(symbols, country):
             # Optionally, you can log the error or handle it in other ways
 
     return data
+
